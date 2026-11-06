@@ -1,0 +1,21 @@
+{
+  "name": "saffron-house",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Saffron House — restaurant POS, online ordering and reservations platform",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node backend/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.22.3",
+    "express-session": "^1.19.0",
+    "multer": "^2.5.0"
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Order — Saffron House</title>
+  <meta name="description" content="Track your Saffron House order in real time.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Menu">
+  <div id="site-header"></div>
+
+  <main class="page-space">
+    <div class="container">
+      <div class="page-title-row">
+        <div>
+          <span class="eyebrow">Order tracking</span>
+          <h1 style="margin-top:10px">Where's my food?</h1>
+          <p>Enter your order number and the phone number used at checkout.</p>
+        </div>
+        <a href="/menu.html" class="link-arrow">Order again <i data-lucide="arrow-right"></i></a>
+      </div>
+
+      <div class="track-layout">
+        <form class="track-form" id="trackForm">
+          <div class="form-grid">
+            <div class="field"><label for="trackNumber">Order number</label><input id="trackNumber" name="order" placeholder="SH-2026-0001" required autocomplete="off"></div>
+            <div class="field"><label for="trackPhone">Phone number</label><input id="trackPhone" name="phone" placeholder="+92 300 0000000" required autocomplete="tel" inputmode="tel"></div>
+          </div>
+          <button class="btn btn-gold btn-block" type="submit" style="margin-top:18px">Track order <i data-lucide="search"></i></button>
+          <div class="form-error" id="trackError"></div>
+          <p class="form-note" style="color:var(--muted)"><i data-lucide="info"></i> The phone number protects your order details. Use the number on the order.</p>
+        </form>
+
+        <div class="track-result" id="trackResult">
+          <div class="track-head">
+            <div>
+              <h2 id="trackOrderNumber">—</h2>
+              <p id="trackMeta">—</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+              <span class="status-pill" id="trackStatus">—</span>
+              <button class="btn btn-outline btn-xs" id="refreshTrack"><i data-lucide="refresh-cw"></i> Refresh</button>
+            </div>
+          </div>
+
+          <div class="timeline" id="trackTimeline"></div>
+          <div class="track-cancelled" id="trackCancelled" style="display:none"></div>
+
+          <div class="order-detail-box">
+            <h4>Your dishes</h4>
+            <div id="trackItems"></div>
+            <div class="track-totals" id="trackTotals"></div>
+          </div>
+
+          <div class="order-detail-box" style="margin-top:16px" id="trackDeliveryBox">
+            <h4 id="trackDeliveryTitle">Order details</h4>
+            <div id="trackDeliveryBody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/track.js" defer></script>
+</body>
+</html>

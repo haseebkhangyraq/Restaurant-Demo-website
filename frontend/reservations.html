@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservations — Saffron House</title>
+  <meta name="description" content="Reserve a table at Saffron House, Gulberg Lahore. Lunch, dinner and private dining.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Reservations">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <img class="bg" src="/assets/images/table.jpg" alt="A table set for dinner at Saffron House">
+      <div class="container">
+        <span class="eyebrow">Reservations</span>
+        <h1>A seat by the fire,<br><em class="italic" style="color:var(--gold-2)">kept for you.</em></h1>
+        <p>Book lunch, dinner or a private room. For parties over eight, our team will call to plan the details.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Home</a><i data-lucide="chevron-right"></i><span>Reservations</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:80px">
+      <div class="container">
+        <div class="reserver-page-grid">
+          <div class="reserve-panel">
+            <h2>Request a table</h2>
+            <p>We confirm every reservation by phone within one hour during service.</p>
+            <form id="reservationForm" novalidate style="margin-top:22px">
+              <div class="form-row">
+                <div class="field"><label for="rvName">Your name</label><input id="rvName" name="name" required placeholder="Full name" autocomplete="name"></div>
+                <div class="field"><label for="rvPhone">Phone</label><input id="rvPhone" name="phone" required placeholder="+92 300 0000000" autocomplete="tel"></div>
+              </div>
+              <div class="form-row">
+                <div class="field"><label for="rvEmail">Email (optional)</label><input id="rvEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email"></div>
+                <div class="field"><label for="rvGuests">Guests</label><select id="rvGuests" name="guests"><option>1</option><option>2</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>14</option><option>16</option></select></div>
+              </div>
+              <div class="form-row">
+                <div class="field"><label for="rvDate">Date</label><input id="rvDate" name="date" type="date" required></div>
+                <div class="field"><label for="rvTime">Time</label><input id="rvTime" name="time" type="time" required value="19:30"></div>
+              </div>
+              <div class="field"><label for="rvNotes">Occasion or special requests</label><textarea id="rvNotes" name="notes" rows="2" placeholder="Birthday, window seat, allergies…"></textarea></div>
+
+              <div style="margin-top:24px">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+                  <label style="font-family:var(--font-alt);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Choose a table (optional)</label>
+                  <span id="tableStatus" style="font-size:10.5px;color:var(--muted)">Checking availability…</span>
+                </div>
+                <div class="table-slots" id="tableSlots"></div>
+                <p style="font-size:10.5px;color:var(--muted);margin-top:8px">No preference? We will assign the best available table for your party.</p>
+              </div>
+
+              <div class="form-error" id="reservationError"></div>
+              <button class="btn btn-gold btn-block" type="submit" style="margin-top:22px">Request reservation <i data-lucide="arrow-right"></i></button>
+              <p class="form-note" style="color:var(--muted)"><i data-lucide="clock"></i> Tables are held for 15 minutes past the booked time.</p>
+            </form>
+
+            <div class="form-success-box" id="reservationSuccess">
+              <div class="ico"><i data-lucide="check"></i></div>
+              <h3>Request received.</h3>
+              <p id="reservationSuccessText"></p>
+              <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+                <a href="/menu.html" class="btn btn-outline btn-sm">Browse the menu</a>
+                <button class="btn btn-gold btn-sm" id="anotherReservation">Book another table</button>
+              </div>
+            </div>
+          </div>
+
+          <aside>
+            <img class="reserve-side-img" src="/assets/images/interior-3.jpg" alt="The Saffron House dining room in the evening">
+            <div class="reserve-side-card">
+              <h4>Private dining</h4>
+              <p>The Saffron Room seats up to 24 guests with a dedicated chef's menu. Ideal for celebrations, corporate dinners and long Sunday lunches.</p>
+              <a href="mailto:events@saffronhouse.pk" class="link-arrow" style="margin-top:12px;font-size:9.5px">events@saffronhouse.pk <i data-lucide="arrow-up-right"></i></a>
+            </div>
+            <div class="reserve-side-card">
+              <h4>Good to know</h4>
+              <div class="hours-list" style="margin-top:10px">
+                <div><span>Mon – Thu</span><b>12pm – 11:30pm</b></div>
+                <div><span>Fri – Sat</span><b>12pm – 12:30am</b></div>
+                <div><span>Sunday</span><b>12pm – 11pm</b></div>
+                <div><span>Smart casual</span><b>Dress code</b></div>
+              </div>
+            </div>
+            <div class="reserve-side-card" style="background:var(--cream)">
+              <h4>Large party?</h4>
+              <p>For 10 or more guests, call us directly on <a href="tel:+924235778899" style="color:var(--gold-dark);text-decoration:underline">+92 42 3577 8899</a> and we will build a menu together.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience">
+      <img class="bg" src="/assets/images/interior-4.jpg" alt="Evening service at Saffron House">
+      <div class="container" data-reveal>
+        <span class="eyebrow center">A note from the room</span>
+        <blockquote>“The best tables are the ones you <em>linger</em> at.”</blockquote>
+        <div class="quote-by">— <b>The Saffron House team</b></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/reservations.js" defer></script>
+</body>
+</html>

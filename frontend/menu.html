@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Saffron House</title>
+  <meta name="description" content="Explore the Saffron House menu — charcoal grill, slow-cooked curries, stone-baked pizza, fresh pasta, desserts and drinks. Order online for delivery or takeaway in Lahore.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Menu">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <img class="bg" src="/assets/images/bbq-platter.jpg" alt="Charcoal grilled meats at Saffron House">
+      <div class="container">
+        <span class="eyebrow">The menu</span>
+        <h1>Cooked over fire,<br><em class="italic" style="color:var(--gold-2)">served with soul.</em></h1>
+        <p>Forty dishes, one charcoal grill. Browse the full menu, customise your plate and order for delivery or collection across Lahore.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Home</a><i data-lucide="chevron-right"></i><span>Menu</span>
+        </nav>
+      </div>
+    </section>
+
+    <div class="menu-toolbar">
+      <div class="container">
+        <div class="toolbar-row">
+          <label class="search-box">
+            <i data-lucide="search"></i>
+            <input id="menuSearch" type="search" placeholder="Search dishes, ingredients…" aria-label="Search the menu" autocomplete="off">
+          </label>
+          <div class="filter-chips" id="categoryChips">
+            <button class="chip active" data-category="all">All dishes</button>
+          </div>
+          <button class="chip veg" id="vegToggle" aria-pressed="false"><i data-lucide="leaf" style="width:12px;height:12px;vertical-align:-1px;margin-right:4px"></i>Vegetarian</button>
+          <select class="select-mini" id="menuSort" aria-label="Sort menu">
+            <option value="recommended">Chef's order</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="name">Name A–Z</option>
+            <option value="rating">Highest rated</option>
+          </select>
+          <span class="menu-count" id="menuCount">Loading menu…</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-sm" style="padding-bottom:100px">
+      <div class="container">
+        <div class="menu-grid" id="menuGrid" aria-live="polite">
+          <div class="menu-card"><div class="dish-media skeleton"></div><div class="dish-body"><div class="skeleton" style="height:12px;width:40%;margin-bottom:10px"></div><div class="skeleton" style="height:24px;width:75%;margin-bottom:10px"></div><div class="skeleton" style="height:40px"></div></div></div>
+          <div class="menu-card"><div class="dish-media skeleton"></div><div class="dish-body"><div class="skeleton" style="height:12px;width:40%;margin-bottom:10px"></div><div class="skeleton" style="height:24px;width:75%;margin-bottom:10px"></div><div class="skeleton" style="height:40px"></div></div></div>
+          <div class="menu-card"><div class="dish-media skeleton"></div><div class="dish-body"><div class="skeleton" style="height:12px;width:40%;margin-bottom:10px"></div><div class="skeleton" style="height:24px;width:75%;margin-bottom:10px"></div><div class="skeleton" style="height:40px"></div></div></div>
+        </div>
+        <div class="menu-empty" id="menuEmpty" style="display:none">
+          <i data-lucide="search-x"></i>
+          <h3>No dishes found</h3>
+          <p>Try a different search or clear your filters — the kitchen has plenty more.</p>
+          <button class="btn btn-outline btn-sm" id="clearFilters" style="margin-top:20px">Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream">
+      <div class="container">
+        <div class="contact-cols">
+          <div class="contact-col">
+            <h4>Order online</h4>
+            <p>Delivery across Gulberg, DHA<br>and Model Town.</p>
+            <p class="small" style="margin-top:10px">Free delivery on orders over Rs. 1,500 with code FREEDEL.</p>
+          </div>
+          <div class="contact-col">
+            <h4>Allergies?</h4>
+            <p style="font-size:18px">Tell us at checkout.</p>
+            <p class="small" style="margin-top:10px">Our kitchen handles nuts, dairy, gluten and shellfish. We will do our best to accommodate you.</p>
+          </div>
+          <div class="contact-col">
+            <h4>Prefer the table?</h4>
+            <p style="font-size:18px"><a href="/reservations.html">Reserve a table</a></p>
+            <p class="small" style="margin-top:10px">Live-fire cooking is best enjoyed in the room. Book a table for lunch or dinner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/product.js" defer></script>
+  <script src="/js/menu.js" defer></script>
+</body>
+</html>

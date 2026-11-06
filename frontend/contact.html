@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Saffron House</title>
+  <meta name="description" content="Find Saffron House in Gulberg, Lahore. Call, email or send us a message for reservations, private dining and events.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Contact">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <img class="bg" src="/assets/images/exterior.jpg" alt="The exterior of Saffron House in Gulberg, Lahore">
+      <div class="container">
+        <span class="eyebrow">Contact</span>
+        <h1>Find us,<br><em class="italic" style="color:var(--gold-2)">or say hello.</em></h1>
+        <p>We are on MM Alam Road in Gulberg III, open every day from noon. Call, email or send a note below.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Home</a><i data-lucide="chevron-right"></i><span>Contact</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:80px">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <span class="eyebrow">Visit Saffron House</span>
+            <h2 style="font-family:var(--font-display);font-size:clamp(2.2rem,3.6vw,3.4rem);line-height:1.02;margin:14px 0 28px">42-C, MM Alam Road,<br><em class="italic" style="color:var(--gold-dark)">Gulberg III, Lahore.</em></h2>
+            <div class="contact-info-cards">
+              <div class="contact-info-card">
+                <span class="ico"><i data-lucide="map-pin"></i></span>
+                <div><h4>Address</h4><p>42-C, MM Alam Road,<br>Gulberg III, Lahore, Pakistan</p></div>
+              </div>
+              <div class="contact-info-card">
+                <span class="ico"><i data-lucide="phone"></i></span>
+                <div><h4>Reservations & general</h4><p><a href="tel:+924235778899">+92 42 3577 8899</a></p><p style="font-size:13px;color:var(--muted);font-family:var(--font-body)">Daily, 11am – 11pm</p></div>
+              </div>
+              <div class="contact-info-card">
+                <span class="ico"><i data-lucide="mail"></i></span>
+                <div><h4>Email</h4><p><a href="mailto:hello@saffronhouse.pk">hello@saffronhouse.pk</a></p><p style="font-size:13px;color:var(--muted);font-family:var(--font-body)">Replies within one business day</p></div>
+              </div>
+              <div class="contact-info-card">
+                <span class="ico"><i data-lucide="calendar-heart"></i></span>
+                <div><h4>Private dining & events</h4><p><a href="mailto:events@saffronhouse.pk">events@saffronhouse.pk</a></p><p style="font-size:13px;color:var(--muted);font-family:var(--font-body)">The Saffron Room seats up to 24</p></div>
+              </div>
+            </div>
+
+            <div class="map-card" style="margin-top:20px;padding:0;overflow:hidden;display:block">
+              <img src="/assets/images/exterior.jpg" alt="Saffron House entrance" style="width:100%;height:220px;object-fit:cover">
+              <div style="padding:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+                <div><strong style="font-family:var(--font-alt);font-size:11px;letter-spacing:.12em;text-transform:uppercase">Valet parking</strong><p style="font-size:11px;color:var(--muted);margin-top:2px">Every evening from 6pm</p></div>
+                <a class="link-arrow" style="font-size:9px" href="https://maps.google.com/?q=42-C+MM+Alam+Road+Gulberg+III+Lahore" target="_blank" rel="noopener">Get directions <i data-lucide="arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-form" id="contactFormWrap">
+              <span class="eyebrow">Send a message</span>
+              <h3 style="font-family:var(--font-display);font-size:32px;margin:12px 0 4px">How can we help?</h3>
+              <p style="font-size:12.5px;color:var(--muted)">Reservations, dietary questions, feedback — we read every note.</p>
+              <form id="contactForm" novalidate style="margin-top:10px">
+                <div class="form-row">
+                  <div class="field"><label for="cName">Your name</label><input id="cName" name="name" required placeholder="Full name" autocomplete="name"></div>
+                  <div class="field"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email"></div>
+                </div>
+                <div class="form-row">
+                  <div class="field"><label for="cPhone">Phone (optional)</label><input id="cPhone" name="phone" placeholder="+92 300 0000000" autocomplete="tel"></div>
+                  <div class="field"><label for="cSubject">Subject</label>
+                    <select id="cSubject" name="subject">
+                      <option>General enquiry</option>
+                      <option>Reservation request</option>
+                      <option>Private dining & events</option>
+                      <option>Feedback</option>
+                      <option>Careers</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field"><label for="cMessage">Your message</label><textarea id="cMessage" name="message" rows="5" required placeholder="Tell us a little more…" maxlength="3000"></textarea></div>
+                <div class="form-error" id="contactError"></div>
+                <button class="btn btn-gold btn-block" type="submit" style="margin-top:18px">Send message <i data-lucide="send"></i></button>
+                <p class="form-note" style="color:var(--muted)"><i data-lucide="shield-check"></i> Your details are only used to reply to this message.</p>
+              </form>
+            </div>
+            <div class="form-success-box" id="contactSuccess" style="border:1px solid var(--line);background:var(--cream)">
+              <div class="ico"><i data-lucide="check"></i></div>
+              <h3>Message received.</h3>
+              <p>Thank you — our team will get back to you within one business day.</p>
+              <button class="btn btn-outline btn-sm" id="newContactMessage" style="margin-top:18px">Send another message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-cream">
+      <div class="container">
+        <div class="contact-cols">
+          <div class="contact-col"><h4>Opening hours</h4>
+            <div class="hours-list">
+              <div><span>Monday – Thursday</span><b>12pm – 11:30pm</b></div>
+              <div><span>Friday – Saturday</span><b>12pm – 12:30am</b></div>
+              <div><span>Sunday</span><b>12pm – 11pm</b></div>
+              <div><span>Kitchen closes</span><b>45 min prior</b></div>
+            </div>
+          </div>
+          <div class="contact-col"><h4>Delivery area</h4><p style="font-size:18px">Gulberg · DHA<br>Model Town · Cantt</p><p class="small" style="margin-top:10px">Delivery daily from 12pm. Free over Rs. 1,500 with code FREEDEL.</p></div>
+          <div class="contact-col"><h4>Follow along</h4><p style="font-size:18px">@saffronhousepk</p><p class="small" style="margin-top:10px">Instagram · Facebook · YouTube<br>Daily specials and table openings.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/contact.js" defer></script>
+</body>
+</html>

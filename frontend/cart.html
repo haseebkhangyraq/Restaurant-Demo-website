@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Order — Saffron House</title>
+  <meta name="description" content="Review your Saffron House order, apply a coupon and continue to checkout.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Menu">
+  <div id="site-header"></div>
+
+  <main class="page-space">
+    <div class="container">
+      <div class="page-title-row">
+        <div>
+          <span class="eyebrow">Your order</span>
+          <h1 style="margin-top:10px">The table is set.</h1>
+          <p>Review your dishes, add a note for the kitchen, then choose delivery or collection.</p>
+        </div>
+        <a href="/menu.html" class="link-arrow">Keep browsing <i data-lucide="arrow-right"></i></a>
+      </div>
+
+      <div id="cartContent">
+        <div class="cart-layout">
+          <div>
+            <div class="cart-items" id="cartItems"></div>
+            <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn btn-outline btn-sm" id="clearCart"><i data-lucide="trash-2"></i> Clear order</button>
+              <a href="/menu.html" class="btn btn-outline btn-sm"><i data-lucide="plus"></i> Add more dishes</a>
+            </div>
+          </div>
+          <aside class="cart-summary">
+            <h3>Order summary</h3>
+            <div id="cartTotals"></div>
+            <form class="coupon-box" id="couponForm">
+              <input id="couponInput" placeholder="Coupon code" aria-label="Coupon code" autocomplete="off">
+              <button type="submit">Apply</button>
+            </form>
+            <div class="coupon-msg" id="couponMsg"></div>
+            <div class="delivery-note"><i data-lucide="truck"></i><span>Delivery is calculated at checkout. Free over Rs. 1,500 with code <b>FREEDEL</b>.</span></div>
+            <a href="/checkout.html" class="btn btn-gold btn-block" id="checkoutBtn">Continue to checkout <i data-lucide="arrow-right"></i></a>
+            <div class="secure-note"><i data-lucide="shield-check"></i> Secure checkout · No real card is charged</div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="cart-empty" id="cartEmpty" style="display:none">
+        <div class="empty-icon"><i data-lucide="shopping-bag"></i></div>
+        <h2>Your order is empty.</h2>
+        <p>Start with something from the charcoal grill — or a plate of our hand-ground spice.</p>
+        <a href="/menu.html" class="btn btn-gold">Explore the menu <i data-lucide="arrow-right"></i></a>
+      </div>
+
+      <section class="section-sm" id="crossSells" style="padding-bottom:0">
+        <div class="section-head" style="max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+          <div><span class="eyebrow">Goes well with</span><h2 style="font-size:2.4rem;margin-top:10px">A little something extra.</h2></div>
+          <a href="/menu.html" class="link-arrow">Full menu <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="menu-grid" id="crossSellGrid" style="grid-template-columns:repeat(3,1fr)"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/product.js" defer></script>
+  <script src="/js/cart.js" defer></script>
+</body>
+</html>

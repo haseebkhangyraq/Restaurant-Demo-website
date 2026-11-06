@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Saffron House</title>
+  <meta name="description" content="Answers to common questions about Saffron House — reservations, delivery, dietary requirements, private dining and payments.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="FAQ">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <img class="bg" src="/assets/images/bar.jpg" alt="The bar at Saffron House">
+      <div class="container">
+        <span class="eyebrow">Good to know</span>
+        <h1>Questions,<br><em class="italic" style="color:var(--gold-2)">answered.</em></h1>
+        <p>Everything you might want to ask before you visit, order or book a private table. If we have missed something, just call.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Home</a><i data-lucide="chevron-right"></i><span>FAQ</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid" style="grid-template-columns:1.5fr .7fr">
+          <div>
+            <span class="eyebrow">Frequently asked</span>
+            <div class="faq-list" id="faqList" style="margin-top:24px">
+              <div class="faq-item"><button class="faq-q">Loading questions… <i data-lucide="plus"></i></button></div>
+            </div>
+          </div>
+          <aside>
+            <div class="reserve-side-card" style="background:var(--cream);margin-top:0">
+              <span class="eyebrow">Still curious?</span>
+              <h4 style="margin-top:12px">Talk to a human.</h4>
+              <p>Our team is on the floor from 11am daily and happy to help with allergies, celebrations or large tables.</p>
+              <a href="tel:+924235778899" class="link-arrow" style="margin-top:14px;font-size:9.5px">+92 42 3577 8899 <i data-lucide="phone"></i></a>
+            </div>
+            <div class="reserve-side-card">
+              <h4>Book a table</h4>
+              <p>Skip the queue — reserve online in under a minute and we will hold your table for 15 minutes past the booking time.</p>
+              <a href="/reservations.html" class="btn btn-gold btn-sm btn-block" style="margin-top:14px">Reserve now</a>
+            </div>
+            <div class="reserve-side-card">
+              <h4>Send a message</h4>
+              <p>Prefer to write? Our contact form reaches the front-of-house team directly.</p>
+              <a href="/contact.html" class="link-arrow" style="margin-top:12px;font-size:9.5px">Contact us <i data-lucide="arrow-right"></i></a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-dark" style="text-align:center">
+      <div class="container-narrow">
+        <span class="eyebrow center" style="color:var(--gold-2)">Ready when you are</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(2.3rem,4vw,3.6rem);margin:16px 0 24px">The table is yours.</h2>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="/reservations.html" class="btn btn-gold">Reserve a table <i data-lucide="calendar"></i></a>
+          <a href="/menu.html" class="btn btn-outline-light">Order online</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/faq.js" defer></script>
+</body>
+</html>

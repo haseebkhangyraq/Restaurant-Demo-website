@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — Saffron House</title>
+  <meta name="description" content="Sign in to your Saffron House account to view orders, reorder favourites and manage saved addresses.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Account">
+  <div id="site-header"></div>
+
+  <main class="page-space">
+    <div class="container">
+      <div class="page-title-row">
+        <div>
+          <span class="eyebrow">Your account</span>
+          <h1 style="margin-top:10px">At your service.</h1>
+          <p>Orders, favourite dishes and saved addresses — all in one place.</p>
+        </div>
+        <a href="/menu.html" class="link-arrow">Order something <i data-lucide="arrow-right"></i></a>
+      </div>
+
+      <!-- ── Signed out ── -->
+      <div id="authSection" style="display:none;padding-bottom:60px">
+        <div class="auth-box">
+          <div class="auth-banner">
+            <img src="/assets/images/interior-2.jpg" alt="The Saffron House dining room">
+            <div class="ab-inner">
+              <span class="eyebrow">Saffron House</span>
+              <h1>Welcome back<br><em class="italic" style="color:var(--gold-2)">to the table.</em></h1>
+              <p>Sign in for faster checkout, saved addresses and one-tap reorders.</p>
+            </div>
+          </div>
+          <div class="auth-body">
+            <div class="auth-tabs">
+              <button class="auth-tab active" data-auth-tab="login">Sign in</button>
+              <button class="auth-tab" data-auth-tab="register">Create account</button>
+            </div>
+            <form class="auth-form active" id="loginForm" novalidate>
+              <div class="field"><label for="loginEmail">Email</label><input id="loginEmail" name="email" type="email" required placeholder="you@example.com" autocomplete="email"></div>
+              <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" name="password" type="password" required placeholder="Your password" autocomplete="current-password"></div>
+              <div class="form-error" id="loginError"></div>
+              <button class="btn btn-gold btn-block" type="submit">Sign in <i data-lucide="arrow-right"></i></button>
+              <div class="demo-hint">Demo customer · <b>customer@example.com</b> / <b>customer123</b></div>
+            </form>
+            <form class="auth-form" id="registerForm" novalidate>
+              <div class="field"><label for="regName">Full name</label><input id="regName" name="name" required placeholder="Your name" autocomplete="name"></div>
+              <div class="field"><label for="regEmail">Email</label><input id="regEmail" name="email" type="email" required placeholder="you@example.com" autocomplete="email"></div>
+              <div class="field"><label for="regPhone">Phone</label><input id="regPhone" name="phone" required placeholder="+92 300 0000000" autocomplete="tel"></div>
+              <div class="field"><label for="regPassword">Password</label><input id="regPassword" name="password" type="password" required minlength="6" placeholder="At least 6 characters" autocomplete="new-password"></div>
+              <div class="form-error" id="registerError"></div>
+              <button class="btn btn-gold btn-block" type="submit">Create account <i data-lucide="arrow-right"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Signed in ── -->
+      <div class="account-layout" id="accountSection" style="display:none">
+        <aside class="account-side">
+          <div class="account-user">
+            <div class="account-avatar" id="accountAvatar">—</div>
+            <strong id="accountName">—</strong>
+            <span id="accountEmail">—</span>
+          </div>
+          <nav class="account-nav" aria-label="Account sections">
+            <button class="active" data-panel="overview"><i data-lucide="layout-dashboard"></i> Overview</button>
+            <button data-panel="orders"><i data-lucide="receipt"></i> My orders</button>
+            <button data-panel="addresses"><i data-lucide="map-pin"></i> Addresses</button>
+            <button data-panel="profile"><i data-lucide="user"></i> Profile</button>
+            <button data-panel="password"><i data-lucide="lock"></i> Password</button>
+            <button class="danger" id="signOutBtn"><i data-lucide="log-out"></i> Sign out</button>
+          </nav>
+        </aside>
+
+        <div>
+          <section class="account-panel active" data-panel-content="overview">
+            <div class="account-panel-head"><h2>Welcome back, <span id="firstName">friend</span>.</h2><a href="/menu.html" class="btn btn-outline btn-sm">Start an order</a></div>
+            <div class="account-stats" id="accountStats"></div>
+            <h3 style="font-family:var(--font-display);font-size:26px;margin-bottom:16px">Recent orders</h3>
+            <div class="order-history" id="recentOrders"></div>
+          </section>
+
+          <section class="account-panel" data-panel-content="orders">
+            <div class="account-panel-head"><h2>My orders</h2><span class="menu-count" id="ordersCount"></span></div>
+            <div class="order-history" id="orderList"></div>
+          </section>
+
+          <section class="account-panel" data-panel-content="addresses">
+            <div class="account-panel-head"><h2>Saved addresses</h2></div>
+            <div id="addressList"></div>
+            <form id="addressForm" style="margin-top:28px;border-top:1px solid var(--line);padding-top:22px">
+              <h3 style="font-family:var(--font-display);font-size:24px;margin-bottom:4px" id="addressFormTitle">Add a new address</h3>
+              <p style="font-size:12px;color:var(--muted);margin-bottom:8px">Save the places you order to most.</p>
+              <input type="hidden" id="addressId">
+              <div class="form-grid">
+                <div class="field"><label for="addrLabel">Label</label><input id="addrLabel" placeholder="Home, Office…" maxlength="40"></div>
+                <div class="field"><label for="addrPhone">Phone</label><input id="addrPhone" placeholder="+92 300 0000000"></div>
+                <div class="field full"><label for="addrAddress">Address</label><textarea id="addrAddress" rows="2" required placeholder="House, street, area, landmark…"></textarea></div>
+                <div class="field"><label for="addrCity">City</label><input id="addrCity" value="Lahore"></div>
+                <div class="field" style="justify-content:flex-end"><label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:12px;color:var(--ink)"><input type="checkbox" id="addrDefault" style="accent-color:var(--gold-dark)"> Set as default</label></div>
+              </div>
+              <div class="form-error" id="addressError"></div>
+              <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+                <button class="btn btn-gold btn-sm" type="submit" id="addressSubmit">Save address</button>
+                <button class="btn btn-outline btn-sm" type="button" id="addressCancel" style="display:none">Cancel edit</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="account-panel" data-panel-content="profile">
+            <div class="account-panel-head"><h2>Your profile</h2></div>
+            <form id="profileForm" style="max-width:620px">
+              <div class="form-grid">
+                <div class="field"><label for="profileName">Full name</label><input id="profileName" required></div>
+                <div class="field"><label for="profilePhone">Phone</label><input id="profilePhone"></div>
+                <div class="field full"><label for="profileAddress">Default address</label><textarea id="profileAddress" rows="2"></textarea></div>
+                <div class="field"><label for="profileCity">City</label><input id="profileCity"></div>
+                <div class="field"><label for="profileEmail">Email</label><input id="profileEmail" disabled></div>
+              </div>
+              <div class="form-error" id="profileError"></div>
+              <div class="form-success" id="profileSuccess">Profile updated.</div>
+              <button class="btn btn-gold btn-sm" type="submit" style="margin-top:18px">Save changes</button>
+            </form>
+          </section>
+
+          <section class="account-panel" data-panel-content="password">
+            <div class="account-panel-head"><h2>Change password</h2></div>
+            <form id="passwordForm" style="max-width:460px">
+              <div class="field"><label for="currentPassword">Current password</label><input id="currentPassword" type="password" required autocomplete="current-password"></div>
+              <div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" required minlength="6" autocomplete="new-password"></div>
+              <div class="field"><label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" required minlength="6" autocomplete="new-password"></div>
+              <div class="form-error" id="passwordError"></div>
+              <div class="form-success" id="passwordSuccess">Password changed.</div>
+              <button class="btn btn-gold btn-sm" type="submit" style="margin-top:18px">Update password</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/account.js" defer></script>
+</body>
+</html>

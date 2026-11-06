@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "builds": [
+    { "src": "server.js", "use": "@vercel/node", "config": { "includeFiles": ["database/**", "frontend/uploads/**"] } },
+    { "src": "frontend/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/uploads/(.*)", "dest": "server.js" },
+    { "src": "/", "dest": "frontend/index.html" },
+    { "src": "/(.*)", "dest": "frontend/$1" }
+  ]
+}

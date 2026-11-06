@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Saffron House</title>
+  <meta name="description" content="Complete your Saffron House order for delivery or collection.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Menu">
+  <div id="site-header"></div>
+
+  <main class="page-space">
+    <div class="container">
+      <div id="checkoutWrap">
+        <div class="page-title-row">
+          <div>
+            <span class="eyebrow">Checkout</span>
+            <h1 style="margin-top:10px">Almost at the table.</h1>
+            <p>Two minutes more. Choose how you would like your order, and we will fire the grill.</p>
+          </div>
+          <a href="/cart.html" class="link-arrow">Back to order <i data-lucide="arrow-left"></i></a>
+        </div>
+
+        <div class="cart-empty" id="checkoutEmpty" style="display:none">
+          <div class="empty-icon"><i data-lucide="shopping-bag"></i></div>
+          <h2>Nothing to check out yet.</h2>
+          <p>Your order is empty — choose a few dishes and come back.</p>
+          <a href="/menu.html" class="btn btn-gold">Explore the menu <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="checkout-layout" id="checkoutLayout">
+          <form id="checkoutForm" novalidate>
+            <section class="checkout-section">
+              <div class="checkout-section-head">
+                <span class="checkout-step">01</span>
+                <div><h3>How would you like it?</h3><span>Delivery within Lahore, or collect from Gulberg.</span></div>
+              </div>
+              <div class="option-cards">
+                <label class="option-card selected" data-type-card="delivery">
+                  <input type="radio" name="type" value="delivery" checked>
+                  <span class="oc-icon"><i data-lucide="bike"></i></span>
+                  <span><strong>Delivery</strong><span>35–50 min · Rs. 250</span></span>
+                  <span class="oc-radio"></span>
+                </label>
+                <label class="option-card" data-type-card="takeaway">
+                  <input type="radio" name="type" value="takeaway">
+                  <span class="oc-icon"><i data-lucide="shopping-bag"></i></span>
+                  <span><strong>Collection</strong><span>Ready in 20–30 min · Free</span></span>
+                  <span class="oc-radio"></span>
+                </label>
+              </div>
+            </section>
+
+            <section class="checkout-section">
+              <div class="checkout-section-head">
+                <span class="checkout-step">02</span>
+                <div><h3>Your details</h3><span>We will only use these to prepare and deliver your order.</span></div>
+              </div>
+              <div class="form-grid">
+                <div class="field"><label for="coName">Full name</label><input id="coName" name="name" required placeholder="Your name" autocomplete="name"></div>
+                <div class="field"><label for="coPhone">Phone</label><input id="coPhone" name="phone" required placeholder="+92 300 0000000" autocomplete="tel" inputmode="tel"></div>
+                <div class="field full" id="addressField">
+                  <label for="coAddress">Delivery address</label>
+                  <textarea id="coAddress" name="address" rows="3" placeholder="House, street, area, landmark…" autocomplete="street-address"></textarea>
+                  <select class="select-mini" id="savedAddress" style="display:none;margin-top:8px;width:100%" aria-label="Saved addresses"></select>
+                </div>
+                <div class="field full"><label for="coNotes">Order notes (optional)</label><textarea id="coNotes" name="notes" rows="2" maxlength="300" placeholder="Allergies, spice level, gate code…"></textarea></div>
+              </div>
+            </section>
+
+            <section class="checkout-section">
+              <div class="checkout-section-head">
+                <span class="checkout-step">03</span>
+                <div><h3>Payment</h3><span>This is a demo checkout — no real payment is taken.</span></div>
+              </div>
+              <div class="payment-grid" style="grid-template-columns:1fr 1fr">
+                <label class="payment-card selected">
+                  <input type="radio" name="paymentMethod" value="cash" checked>
+                  <i data-lucide="banknote"></i>
+                  <strong>Cash</strong><span>Pay on delivery or collection</span>
+                </label>
+                <label class="payment-card">
+                  <input type="radio" name="paymentMethod" value="demo">
+                  <i data-lucide="credit-card"></i>
+                  <strong>Card · demo</strong><span>Simulated secure payment</span>
+                </label>
+              </div>
+              <div class="demo-card-form" id="demoCardForm">
+                <div class="demo-badge"><i data-lucide="shield-check"></i> Demo mode · use any test card, nothing is charged or stored</div>
+                <div class="form-grid">
+                  <div class="field full"><label for="cardNumber">Card number</label><input id="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="off"></div>
+                  <div class="field"><label for="cardExpiry">Expiry</label><input id="cardExpiry" placeholder="MM/YY" maxlength="5" inputmode="numeric" autocomplete="off"></div>
+                  <div class="field"><label for="cardCvc">CVC</label><input id="cardCvc" placeholder="123" maxlength="4" inputmode="numeric" autocomplete="off"></div>
+                </div>
+              </div>
+            </section>
+
+            <div class="form-error" id="checkoutError"></div>
+            <button class="btn btn-gold btn-lg btn-block" type="submit" id="placeOrderBtn">Place order <i data-lucide="arrow-right"></i></button>
+            <div class="secure-note"><i data-lucide="lock"></i> Encrypted session · Demo payment only · No card details stored</div>
+          </form>
+
+          <aside class="checkout-summary">
+            <h3>Your order</h3>
+            <div class="checkout-items" id="checkoutItems"></div>
+            <div id="checkoutTotals" style="margin-top:10px"></div>
+            <div class="delivery-note" style="margin-top:16px"><i data-lucide="flame"></i><span>Cooked to order. We will text you when the kitchen starts cooking.</span></div>
+            <a href="/cart.html" class="btn btn-outline btn-block btn-sm" style="margin-top:16px">Edit order</a>
+          </aside>
+        </div>
+      </div>
+
+      <div class="checkout-success" id="checkoutSuccess">
+        <div class="success-mark"><i data-lucide="check"></i></div>
+        <span class="eyebrow" style="justify-content:center">Order confirmed</span>
+        <h1 style="margin-top:14px">The grill is lit.</h1>
+        <p id="successText">Thank you — your order has reached the kitchen. We will call if we need anything else.</p>
+        <div class="order-ref"><span>Order number</span><strong id="successNumber">—</strong></div>
+        <div class="success-actions">
+          <a href="#" class="btn btn-gold" id="trackOrderBtn">Track your order <i data-lucide="map-pin"></i></a>
+          <a href="/menu.html" class="btn btn-outline">Back to the menu</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/checkout.js" defer></script>
+</body>
+</html>

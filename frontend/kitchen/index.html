@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saffron House — Kitchen Display</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/kitchen/kitchen.css">
+</head>
+<body>
+
+  <!-- ══════════════════ Login ══════════════════ -->
+  <section class="login-screen" id="loginScreen">
+    <div class="login-art">
+      <div class="login-art-bg"><img src="/assets/images/interior-1.jpg" alt="Saffron House kitchen pass"></div>
+      <div class="brand">
+        <span class="brand-mark">SH</span>
+        <div><strong>Saffron House</strong><span>Kitchen display</span></div>
+      </div>
+      <div class="login-copy">
+        <span class="eyebrow">The pass</span>
+        <h1>Every ticket.<br><em>Nothing missed.</em></h1>
+        <p>Sign in to open the live kitchen queue. Tickets arrive as the floor fires them, with elapsed timers and one-tap status moves.</p>
+        <div class="login-stats">
+          <div><strong>Live</strong><span>Ticket sync</span></div>
+          <div><strong>10s</strong><span>Refresh cycle</span></div>
+          <div><strong>3</strong><span>Clear stages</span></div>
+        </div>
+      </div>
+      <div class="login-art-foot"><span>42-C, MM Alam Road, Gulberg III, Lahore</span><span>Hot line · +92 42 3577 8899</span></div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-box">
+        <div class="brand login-brand-mobile">
+          <span class="brand-mark">SH</span>
+          <div><strong>Saffron House</strong><span>Kitchen display</span></div>
+        </div>
+        <span class="eyebrow">Staff access</span>
+        <h2>Open the pass.</h2>
+        <p class="login-sub">Kitchen, manager and administrator accounts can run this screen.</p>
+
+        <form id="loginForm" class="login-form" novalidate>
+          <label class="field">
+            <span>Email address</span>
+            <div class="input-icon">
+              <i data-lucide="mail"></i>
+              <input type="email" name="email" id="loginEmail" autocomplete="username" placeholder="kitchen@saffronhouse.pk" required>
+            </div>
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <div class="input-icon">
+              <i data-lucide="lock"></i>
+              <input type="password" name="password" id="loginPassword" autocomplete="current-password" placeholder="••••••••" required>
+              <button type="button" class="reveal-btn" id="togglePassword" aria-label="Show password"><i data-lucide="eye"></i></button>
+            </div>
+          </label>
+          <p class="form-error" id="loginError" role="alert"></p>
+          <button class="btn btn-gold btn-block btn-lg" type="submit" id="loginSubmit">
+            <span>Open kitchen display</span><i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="demo-access">
+          <span class="demo-access-title">Demo account</span>
+          <button type="button" class="demo-chip" id="fillDemo">
+            <strong>Kitchen</strong>
+            <span>kitchen@saffronhouse.pk · kitchen123</span>
+          </button>
+        </div>
+        <a class="login-back" href="/admin">← Back to management console</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ KDS ══════════════════ -->
+  <section class="kds hidden" id="kds" aria-label="Kitchen display system">
+    <header class="kds-top">
+      <div class="brand">
+        <span class="brand-mark">SH</span>
+        <div><strong>Saffron House</strong><span>Kitchen pass</span></div>
+      </div>
+
+      <div class="kds-clock" aria-live="off">
+        <strong id="clockTime">--:--</strong>
+        <span id="clockDate">—</span>
+      </div>
+
+      <div class="kds-connect">
+        <span class="live-dot" id="liveDot"></span>
+        <div>
+          <strong id="liveLabel">Connecting…</strong>
+          <span id="lastSync">Waiting for the pass</span>
+        </div>
+      </div>
+
+      <div class="kds-actions">
+        <button class="icon-btn" id="soundBtn" type="button" title="Toggle new-ticket sound" aria-pressed="true">
+          <i data-lucide="volume-2"></i><span class="sr-only">Toggle sound</span>
+        </button>
+        <button class="icon-btn" id="refreshBtn" type="button" title="Refresh tickets">
+          <i data-lucide="refresh-cw"></i><span class="sr-only">Refresh</span>
+        </button>
+        <button class="icon-btn" id="fullscreenBtn" type="button" title="Toggle full screen">
+          <i data-lucide="maximize"></i><span class="sr-only">Full screen</span>
+        </button>
+        <div class="kds-user">
+          <span class="kds-avatar" id="staffInitials">–</span>
+          <div><strong id="staffName">Staff</strong><span id="staffRole">Kitchen</span></div>
+        </div>
+        <button class="icon-btn danger" id="logoutBtn" type="button" title="Sign out">
+          <i data-lucide="log-out"></i><span class="sr-only">Sign out</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="kds-toolbar">
+      <div class="filter-tabs" id="typeFilter" role="tablist" aria-label="Filter by order type">
+        <button class="active" data-type="all" role="tab" aria-selected="true">All tickets</button>
+        <button data-type="dine-in" role="tab" aria-selected="false">Dine-in</button>
+        <button data-type="takeaway" role="tab" aria-selected="false">Takeaway</button>
+        <button data-type="delivery" role="tab" aria-selected="false">Delivery</button>
+      </div>
+      <div class="kds-toolbar-right">
+        <span class="kds-summary" id="kdsSummary">Loading tickets…</span>
+        <span class="legend"><i class="l-pending"></i>Awaiting</span>
+        <span class="legend"><i class="l-preparing"></i>Preparing</span>
+        <span class="legend"><i class="l-ready"></i>Ready</span>
+      </div>
+    </div>
+
+    <div class="offline-bar hidden" id="offlineBar">
+      <i data-lucide="wifi-off"></i>
+      <span id="offlineText">Connection lost. Retrying…</span>
+      <button class="btn btn-outline btn-sm" id="offlineRetry" type="button">Retry now</button>
+    </div>
+
+    <main class="kds-board" id="kdsBoard">
+      <section class="kds-col col-pending" data-col="pending">
+        <header class="col-head"><h2><i></i> Awaiting</h2><b id="countPending">0</b></header>
+        <div class="col-body" id="colPending"><div class="col-empty">Loading…</div></div>
+      </section>
+      <section class="kds-col col-preparing" data-col="preparing">
+        <header class="col-head"><h2><i></i> Preparing</h2><b id="countPreparing">0</b></header>
+        <div class="col-body" id="colPreparing"><div class="col-empty">Loading…</div></div>
+      </section>
+      <section class="kds-col col-ready" data-col="ready">
+        <header class="col-head"><h2><i></i> Ready to serve</h2><b id="countReady">0</b></header>
+        <div class="col-body" id="colReady"><div class="col-empty">Loading…</div></div>
+      </section>
+    </main>
+
+    <footer class="kds-foot">
+      <span><i data-lucide="clock-3"></i> Tickets refresh automatically every 10 seconds</span>
+      <span id="footClock">—</span>
+    </footer>
+  </section>
+
+  <div class="toast-root" id="toastRoot" aria-live="polite"></div>
+
+  <script src="/vendor/lucide.min.js"></script>
+  <script src="/kitchen/kitchen.js"></script>
+</body>
+</html>

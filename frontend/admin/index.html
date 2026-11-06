@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saffron House — Management Console</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+  <!-- ══════════════════════ LOGIN ══════════════════════ -->
+  <section class="login-screen" id="loginScreen">
+    <div class="login-visual">
+      <div class="login-visual-bg"><img src="/assets/images/interior-1.jpg" alt="Saffron House dining room"></div>
+      <div class="login-brand">
+        <span class="brand-mark">SH</span>
+        <div><strong>Saffron House</strong><span>Modern Pakistani Grill</span></div>
+      </div>
+      <div class="login-quote">
+        <span class="eyebrow">Management console</span>
+        <h1>Every table.<br><em>One kitchen.</em></h1>
+        <p>Live service, inventory and insight — built for the pace of a Friday night.</p>
+        <div class="login-stats">
+          <div><strong>40</strong><span>Dishes on the menu</span></div>
+          <div><strong>12</strong><span>Tables in service</span></div>
+          <div><strong>24/7</strong><span>Order visibility</span></div>
+        </div>
+      </div>
+      <div class="login-visual-foot">
+        <span>42-C, MM Alam Road, Gulberg III, Lahore</span>
+        <span>+92 42 3577 8899</span>
+      </div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-box">
+        <div class="login-mobile-brand">
+          <span class="brand-mark">SH</span>
+          <div><strong>Saffron House</strong><span>Management console</span></div>
+        </div>
+        <span class="eyebrow">Staff access</span>
+        <h2>Welcome back.</h2>
+        <p class="login-sub">Sign in to open the service floor, kitchen pass and back office.</p>
+
+        <form id="loginForm" class="login-form" novalidate>
+          <label class="field">
+            <span>Email address</span>
+            <div class="input-icon">
+              <i data-lucide="mail"></i>
+              <input type="email" name="email" id="loginEmail" autocomplete="username" placeholder="you@saffronhouse.pk" required>
+            </div>
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <div class="input-icon">
+              <i data-lucide="lock"></i>
+              <input type="password" name="password" id="loginPassword" autocomplete="current-password" placeholder="••••••••" required>
+              <button type="button" class="reveal-btn" id="togglePassword" aria-label="Show password"><i data-lucide="eye"></i></button>
+            </div>
+          </label>
+          <div class="login-row">
+            <label class="checkbox"><input type="checkbox" id="rememberEmail" checked> <span>Remember my email</span></label>
+            <span class="login-help">Need help? Ask your manager</span>
+          </div>
+          <p class="form-error" id="loginError" role="alert"></p>
+          <button class="btn btn-gold btn-block btn-lg" type="submit" id="loginSubmit">
+            <span>Sign in to dashboard</span><i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="demo-access">
+          <span class="demo-access-title">Demo staff accounts — click to fill</span>
+          <div class="demo-chips">
+            <button type="button" class="demo-chip" data-email="admin@saffronhouse.pk" data-pass="admin123"><strong>Admin</strong><span>Ayesha · full access</span></button>
+            <button type="button" class="demo-chip" data-email="manager@saffronhouse.pk" data-pass="manager123"><strong>Manager</strong><span>Bilal · operations</span></button>
+            <button type="button" class="demo-chip" data-email="cashier@saffronhouse.pk" data-pass="cashier123"><strong>Cashier</strong><span>Hamza · POS &amp; billing</span></button>
+            <button type="button" class="demo-chip" data-email="kitchen@saffronhouse.pk" data-pass="kitchen123"><strong>Kitchen</strong><span>Usman · KDS</span></button>
+          </div>
+        </div>
+
+        <p class="login-foot">Protected by role-based access · Demo environment, no real payments processed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ APP ══════════════════════ -->
+  <div class="app hidden" id="app">
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a href="#/dashboard" class="brand">
+          <span class="brand-mark">SH</span>
+          <span class="brand-text"><strong>Saffron House</strong><span>Management</span></span>
+        </a>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close menu"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="venue-pill">
+        <span class="venue-dot"></span>
+        <div><strong>Lahore · Gulberg</strong><span id="venueStatus">Open for service</span></div>
+        <i data-lucide="chevron-down"></i>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav" aria-label="Admin sections">
+        <div class="nav-group">
+          <span class="nav-label">Overview</span>
+          <a href="#/dashboard" class="nav-link" data-route="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+          <a href="#/pos" class="nav-link" data-route="pos"><i data-lucide="scan-barcode"></i><span>Point of Sale</span><kbd>P</kbd></a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Service floor</span>
+          <a href="#/orders" class="nav-link" data-route="orders"><i data-lucide="receipt-text"></i><span>Orders</span><b class="nav-badge" id="navOrdersBadge" hidden>0</b></a>
+          <a href="#/kitchen" class="nav-link" data-route="kitchen"><i data-lucide="chef-hat"></i><span>Kitchen Display</span><b class="nav-badge" id="navKitchenBadge" hidden>0</b></a>
+          <a href="#/tables" class="nav-link" data-route="tables"><i data-lucide="armchair"></i><span>Tables</span></a>
+          <a href="#/reservations" class="nav-link" data-route="reservations"><i data-lucide="calendar-check"></i><span>Reservations</span><b class="nav-badge" id="navResBadge" hidden>0</b></a>
+          <a href="#/billing" class="nav-link" data-route="billing"><i data-lucide="file-text"></i><span>Billing &amp; Invoices</span></a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Menu &amp; costing</span>
+          <a href="#/menu" class="nav-link" data-route="menu"><i data-lucide="book-open-text"></i><span>Menu Manager</span></a>
+          <a href="#/recipes" class="nav-link" data-route="recipes"><i data-lucide="flask-conical"></i><span>Recipes &amp; Costing</span></a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Operations</span>
+          <a href="#/inventory" class="nav-link" data-route="inventory"><i data-lucide="boxes"></i><span>Inventory</span><b class="nav-badge alert" id="navStockBadge" hidden>0</b></a>
+          <a href="#/suppliers" class="nav-link" data-route="suppliers"><i data-lucide="truck"></i><span>Suppliers &amp; Purchasing</span></a>
+          <a href="#/expenses" class="nav-link" data-route="expenses"><i data-lucide="wallet"></i><span>Expenses</span></a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">People</span>
+          <a href="#/customers" class="nav-link" data-route="customers"><i data-lucide="users"></i><span>Customers</span></a>
+          <a href="#/staff" class="nav-link" data-route="staff"><i data-lucide="badge-check"></i><span>Staff &amp; Roles</span></a>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Insight</span>
+          <a href="#/reports" class="nav-link" data-route="reports"><i data-lucide="chart-no-axes-combined"></i><span>Reports</span></a>
+          <a href="#/settings" class="nav-link" data-route="settings"><i data-lucide="settings-2"></i><span>Settings</span><b class="nav-badge alert" id="navMsgBadge" hidden>0</b></a>
+        </div>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="sidebar-user" id="sidebarUser">
+          <span class="avatar" id="sidebarAvatar">AK</span>
+          <div><strong id="sidebarName">Ayesha Khan</strong><span id="sidebarRole">Administrator</span></div>
+          <button class="icon-btn" id="sidebarLogout" title="Sign out" aria-label="Sign out"><i data-lucide="log-out"></i></button>
+        </div>
+        <div class="sidebar-version">Saffron Suite <span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><i data-lucide="menu"></i></button>
+          <div class="topbar-title">
+            <span class="topbar-kicker" id="topbarKicker">Overview</span>
+            <h1 id="topbarTitle">Dashboard</h1>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <span class="live-clock" id="liveClock"><i data-lucide="clock-3"></i><span></span></span>
+          <a class="btn btn-sm btn-outline topbar-site" href="/" target="_blank" rel="noopener"><i data-lucide="external-link"></i><span>View site</span></a>
+          <button class="icon-btn topbar-bell" id="topbarBell" title="Notifications" aria-label="Notifications">
+            <i data-lucide="bell"></i><b class="dot" id="bellDot" hidden></b>
+          </button>
+          <div class="user-menu">
+            <button class="user-chip" id="userChip" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar" id="topbarAvatar">AK</span>
+              <span class="user-chip-text"><strong id="topbarName">Ayesha Khan</strong><small id="topbarRole">Administrator</small></span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <div class="dropdown-head"><strong id="dropName">Ayesha Khan</strong><span id="dropEmail">admin@saffronhouse.pk</span></div>
+              <a href="#/settings" data-route-link="settings"><i data-lucide="user-cog"></i> My account</a>
+              <a href="/kitchen" target="_blank" rel="noopener"><i data-lucide="chef-hat"></i> Kitchen display</a>
+              <a href="/" target="_blank" rel="noopener"><i data-lucide="globe"></i> Customer website</a>
+              <button type="button" id="userLogout"><i data-lucide="log-out"></i> Sign out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="view" id="view" tabindex="-1">
+        <div class="view-loading"><span class="spinner"></span><p>Preparing your workspace…</p></div>
+      </main>
+
+      <footer class="app-footer">
+        <span>© <span id="footerYear"></span> Saffron House · Management console</span>
+        <span class="footer-status"><b></b> All systems operational · Database auto-saved</span>
+      </footer>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+  <script src="/vendor/lucide.min.js"></script>
+  <script src="/vendor/chart.umd.min.js"></script>
+  <script src="/admin/js/core.js"></script>
+  <script src="/admin/js/views/orders.js"></script>
+  <script src="/admin/js/views/dashboard.js"></script>
+  <script src="/admin/js/views/pos.js"></script>
+  <script src="/admin/js/views/kitchen.js"></script>
+  <script src="/admin/js/views/billing.js"></script>
+  <script src="/admin/js/views/menu.js"></script>
+  <script src="/admin/js/views/recipes.js"></script>
+  <script src="/admin/js/views/inventory.js"></script>
+  <script src="/admin/js/views/suppliers.js"></script>
+  <script src="/admin/js/views/expenses.js"></script>
+  <script src="/admin/js/views/tables.js"></script>
+  <script src="/admin/js/views/reservations.js"></script>
+  <script src="/admin/js/views/customers.js"></script>
+  <script src="/admin/js/views/staff.js"></script>
+  <script src="/admin/js/views/reports.js"></script>
+  <script src="/admin/js/views/settings.js"></script>
+  <script src="/admin/js/app.js"></script>
+</body>
+</html>

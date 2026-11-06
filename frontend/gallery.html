@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Saffron House</title>
+  <meta name="description" content="A look inside Saffron House — the dining room, the charcoal grill, the pastry kitchen and the plates we serve.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-header="solid" data-nav="Gallery">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero" style="padding-bottom:70px">
+      <img class="bg" src="/assets/images/interior-1.jpg" alt="The dining room at Saffron House">
+      <div class="container">
+        <span class="eyebrow">The gallery</span>
+        <h1>Warm light,<br><em class="italic" style="color:var(--gold-2)">long evenings.</em></h1>
+        <p>Low light, live fire, copper pots and the quiet theatre of a kitchen at full tilt. A look inside the house.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/index.html">Home</a><i data-lucide="chevron-right"></i><span>Gallery</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:64px">
+      <div class="container">
+        <div class="gallery-filter" id="galleryFilter"></div>
+        <div class="gallery-page-grid" id="galleryGrid">
+          <div class="gallery-item skeleton" style="height:320px"></div>
+          <div class="gallery-item skeleton" style="height:240px"></div>
+          <div class="gallery-item skeleton" style="height:280px"></div>
+        </div>
+        <div class="center-cta">
+          <a href="/reservations.html" class="btn btn-gold">Come see it in person <i data-lucide="calendar"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream">
+      <div class="container">
+        <div class="contact-cols">
+          <div class="contact-col">
+            <h4>Follow along</h4>
+            <p style="font-size:18px">@saffronhousepk</p>
+            <p class="small" style="margin-top:10px">Daily specials, behind-the-pass moments and table openings on Instagram.</p>
+          </div>
+          <div class="contact-col">
+            <h4>Private events</h4>
+            <p style="font-size:18px">The Saffron Room</p>
+            <p class="small" style="margin-top:10px">A private dining room for up to 24 guests, with its own entrance and chef's menu.</p>
+          </div>
+          <div class="contact-col">
+            <h4>Plan your visit</h4>
+            <p style="font-size:18px"><a href="/reservations.html">Reserve a table</a></p>
+            <p class="small" style="margin-top:10px">Open daily from noon. Valet parking every evening from 6pm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image"><i data-lucide="x"></i></button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="/vendor/lucide.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
+  <script src="/js/gallery.js" defer></script>
+</body>
+</html>
